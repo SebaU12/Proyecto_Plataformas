@@ -1,0 +1,7 @@
+{
+  "name": "justfork",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
