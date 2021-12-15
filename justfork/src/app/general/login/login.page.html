@@ -13,4 +13,60 @@
       <ion-title size="large">{{log}}</ion-title>
     </ion-toolbar>
   </ion-header>
+
+  <ion-grid *ngIf="show">
+    <ion-row>
+      <ion-col>
+        <form [formGroup]="userlogForm" (ngSubmit)="LogUser(userlogForm.value)">
+          <ion-item>
+            <ion-label position="floating">Email</ion-label>
+            <ion-input formControlName="email" type="text"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label position="floating">Contraseña</ion-label>
+            <ion-input formControlName="password" type="password"></ion-input>
+          </ion-item>
+          <ion-row>
+            <ion-col class="ion-text-center">
+              <ion-button expand="full" type="submit">Crear usuario</ion-button>
+            </ion-col>
+          </ion-row>
+        </form>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <ion-grid *ngIf="!show">
+    <ion-row>
+      <ion-col>
+        <form [formGroup]="userForm" (ngSubmit)="addUser(userForm.value)">
+          <ion-item>
+            <ion-label position="floating">Nombre</ion-label>
+            <ion-input formControlName="user_name" type="text"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label position="floating">Apellido</ion-label>
+            <ion-input formControlName="user_lname" type="text"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label position="floating">Email</ion-label>
+            <ion-input formControlName="email" type="text"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label position="floating">Contraseña</ion-label>
+            <ion-input formControlName="password" type="password"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label position="floating">Ubicación</ion-label>
+            <ion-input formControlName="ubication" type="text"></ion-input>
+          </ion-item>
+          <ion-row>
+            <ion-col class="ion-text-center">
+              <ion-button expand="full" type="submit">Crear usuario</ion-button>
+            </ion-col>
+          </ion-row>
+        </form>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>

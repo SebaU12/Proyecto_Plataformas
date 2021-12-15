@@ -13,4 +13,11 @@
       <ion-title size="large">Restaurante</ion-title>
     </ion-toolbar>
   </ion-header>
+  <ion-grid *ngIf="flag">
+    <ion-col class="ion-text-center">
+      <ion-button expand="full" color="tertiary" (click)="redirecToview()">Mirar restaurante</ion-button>
+      <ion-button expand="full" (click)="redirecToedit()">Editar restaurante</ion-button>
+      <ion-button expand="full" color="danger" (click)="redirecTodelete()">Eliminar restaurante</ion-button>
+    </ion-col>
+  </ion-grid>
 </ion-content>
