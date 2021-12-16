@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { GeneralService } from '../../general.service';
+import { CameraService } from '../../camera.service';
 import { Router } from "@angular/router";
 import { FormBuilder, FormGroup } from '@angular/forms';
 
@@ -15,11 +16,13 @@ export class CrearPage implements OnInit {
 
   constructor(private activatedRoute: ActivatedRoute,
               private generalService: GeneralService,
+              private cameraService: CameraService,
               private router: Router, 
               private formBuilder: FormBuilder) { 
                 this.restForm= this.formBuilder.group({
                   restaurant_name: [''],
                   ubication: [''],
+                  imageUrl: [''],
                 });
               }
 
@@ -45,13 +48,23 @@ export class CrearPage implements OnInit {
   addRest(values:any){
     this.generalService.postRestaurant(this.restForm.value).subscribe(
       response => {
-        console.log("se agrego restaurante")
+        alert("Se creo el restaurante, logueate de nuevo por favor para notar los cambios")
+        localStorage.clear();
+        this.router.navigateByUrl('/login/1')
         console.log(response);
       }, 
       error => {
         alert("Los datos no estan registrados")
       }
     )
+  }
+
+  async openCamera() {
+    const picture_data = await this.cameraService.takePicture();
+    var pic = (picture_data.picture_url)
+    this.restForm.patchValue({
+      imageUrl: pic
+    });
   }
 
 }

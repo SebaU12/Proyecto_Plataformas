@@ -47,6 +47,9 @@ export class VerPage implements OnInit {
       response => {
         console.log(response); 
         this.restaurant = response; 
+        if(this.restaurant.imageUrl != ""){
+          this.flag = false;
+        }
       }, 
       error => {
         console.log(error);

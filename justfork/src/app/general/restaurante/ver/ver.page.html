@@ -21,14 +21,9 @@
     </ion-card-header>
     <ion-card-content>
       <ion-img *ngIf="flag" src={{imagen}}> </ion-img>
+      <ion-img *ngIf="!flag" src={{restaurant.imageUrl}}> </ion-img>
       <br>
       Publicado por: {{admin}}
     </ion-card-content>
   </ion-card>
-<!--
-    <ion-card-content>
-      {{menu.descripcion}}
-    </ion-card-content>
--->
-
 </ion-content>

@@ -11,10 +11,15 @@ function save(req, res) {
             message: "Ya tiene un restaurante asociado a su perfil"
         })
     } else {
+        var imagen = req.body.imageUrl; 
+
+		    if(req.body.imageUrl[0] != "h" && req.body.imageUrl != ""){
+			      imagen = 'http://10.0.2.15:7899/' + req.body.imageUrl; 	
+		    }
         const restaurant = {
             restaurant_name: req.body.restaurant_name,
             ubication: req.body.ubication,
-            imageUrl: req.body.imageUrl,
+            imageUrl: imagen,
             open_time: req.body.open_time,
             close_time: req.body.close_time,
             userId: req.userData.userId
@@ -89,11 +94,16 @@ function update(req, res) {
             message: "No tiene los permisos"
         })
     } else {
+        var imagen = req.body.imageUrl; 
+
+		    if(req.body.imageUrl[0] != "h" && req.body.imageUrl != ""){
+			      imagen = 'http://10.0.2.15:7899/' + req.body.imageUrl; 	
+		    }
         const id = req.userData.restaurantId;
         const updatedRestaurant = {
             restaurant_name: req.body.restaurant_name,
             ubication: req.body.ubication,
-            imageUrl: req.body.imageUrl,
+            imageUrl: imagen,
             open_time: req.body.open_time,
             close_time: req.body.close_time
         }

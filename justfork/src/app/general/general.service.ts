@@ -13,6 +13,11 @@ export class GeneralService {
     private http: HttpClient
   ) { }
 
+  getRestaurants(): Observable<any> {
+        return this.http.get(`${baseUrl}restaurants`).pipe(
+        )
+  }
+
   loginAdmin(data: any): Observable<any>{
         return this.http.post(`${baseUrl}user_admin/login`, data).pipe(
         )
@@ -43,10 +48,21 @@ export class GeneralService {
         )
   }
 
+  patchRestaurant(data: any): Observable<any> {
+        return this.http.patch(`${baseUrl}restaurants`, data).pipe(
+        )
+  }
+
+  deleteRestaurant(): Observable<any>{
+        return this.http.delete(`${baseUrl}restaurants/`).pipe(
+        )
+    }
+
   setToken(data: string){
     this.token = data;
     window.localStorage['token'] = this.token; 
   }
+
   getToken(){
     var valor = localStorage.getItem('token');
     return valor; 

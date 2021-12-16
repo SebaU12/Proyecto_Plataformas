@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { GeneralService } from '../general.service';
+import { Router } from "@angular/router";
 
 @Component({
   selector: 'app-home',
@@ -7,9 +10,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomePage implements OnInit {
 
-  constructor() { }
+  restaurants: any; 
+  flag: boolean = true; 
+
+  constructor(private activatedRoute: ActivatedRoute,
+              private generalService: GeneralService,
+              private router: Router
+
+  ) { }
 
   ngOnInit() {
+    this.generalService.getRestaurants().subscribe(
+      response => {
+        console.log(response)
+      }, 
+      error => {
+        console.log(error);
+      }
+    )
   }
 
 }

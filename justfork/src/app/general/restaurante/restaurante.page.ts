@@ -3,7 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { GeneralService } from '../general.service';
 import { CookieService } from "ngx-cookie-service";
 import { Storage } from '@ionic/storage-angular'; 
-import {Router} from "@angular/router";
+import { Router } from "@angular/router";
 
 @Component({
   selector: 'app-restaurante',
