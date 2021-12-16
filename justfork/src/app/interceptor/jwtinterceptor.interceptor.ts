@@ -37,7 +37,7 @@ export class JWTInterceptorInterceptor implements HttpInterceptor {
       catchError((err: HttpErrorResponse) => {
 
         if (err.status === 401) {
-          alert("Si quieres crear o modificar tu restaurante logueate por favor")
+          //alert("Si quieres crear o modificar tu restaurante logueate por favor")
           this.router.navigateByUrl('/login/1')
         }
         return throwError(err);

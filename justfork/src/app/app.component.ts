@@ -1,10 +1,15 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { GeneralService } from './general/general.service'
+
 @Component({
   selector: 'app-root',
   templateUrl: 'app.component.html',
   styleUrls: ['app.component.scss'],
 })
-export class AppComponent {
+export class AppComponent implements OnInit{
+  public admin: string = ""
+  public flag: boolean = false; 
   public appPages = [
     { title: 'Home', url: '/folder/Home', icon: 'home' },
     { title: 'Registrarse', url: '/folder/Registrarse', icon: 'person-add' },
@@ -12,5 +17,24 @@ export class AppComponent {
     { title: 'Perfil', url: '/folder/Perfil', icon: 'body' },
     { title: 'Restaurante', url: '/folder/Restaurante', icon: 'restaurant' },
   ];
-  constructor() {}
+
+  constructor(private activatedRoute: ActivatedRoute,
+              private generalService: GeneralService,
+              ) { }
+
+  ngOnInit() {
+    this.getAdminData();
+  }
+
+  getAdminData(){
+    this.generalService.getAdmin().subscribe(
+      response => {
+        this.admin = response; 
+        this.flag = true; 
+      }, 
+      error => {
+        console.log(error);
+      }
+    )
+  }
 }

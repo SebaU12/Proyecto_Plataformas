@@ -4,6 +4,7 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 import { GeneralService } from '../general.service';
 import { CookieService } from "ngx-cookie-service";
 import { Storage } from '@ionic/storage-angular'; 
+import { Router } from "@angular/router";
 
 @Component({
   selector: 'app-login',
@@ -18,6 +19,7 @@ export class LoginPage implements OnInit {
 
   constructor(private activatedRoute: ActivatedRoute,
               private generalService: GeneralService,
+              private router: Router, 
               private cookieService: CookieService,
               private storage: Storage,
               private formBuilder: FormBuilder) { 
@@ -48,7 +50,8 @@ export class LoginPage implements OnInit {
     console.log(values); 
     this.generalService.postAdmin(this.userForm.value).subscribe(
       response => {
-        console.log(response); 
+        alert("Usuario creado con exito, por favor has login")
+        this.router.navigateByUrl('/login/1')
       }, 
       error => {
         console.log(error); 
@@ -61,7 +64,8 @@ export class LoginPage implements OnInit {
       response => {
         if(response.token){
           this.generalService.setToken(response.token);
-          console.log(response.token)
+          alert("Usuario logueado")
+          this.router.navigateByUrl('/restaurante')
         }
       }, 
       error => {
