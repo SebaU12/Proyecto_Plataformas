@@ -67,8 +67,6 @@ principales elementos de su negocio.
 4. Entrar al archivo `config.json`, ubicado en la carpeta `backend/config/`
 5. En "username": Su_usuario, "password": "Su_contraseña", "database": "just_fork"
 6. Ingresar el comando `npx sequelize-cli db:migrate`
-7. Si se desea información más detallada de la base de datos lea `just_fork.sql` o revise dentro del backend `migrations` y `models`
-
 
 ### Backend
 
