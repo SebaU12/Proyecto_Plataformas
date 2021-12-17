@@ -23,18 +23,6 @@ export class AppComponent implements OnInit{
               ) { }
 
   ngOnInit() {
-    this.getAdminData();
   }
 
-  getAdminData(){
-    this.generalService.getAdmin().subscribe(
-      response => {
-        this.admin = response; 
-        this.flag = true; 
-      }, 
-      error => {
-        console.log(error);
-      }
-    )
-  }
 }

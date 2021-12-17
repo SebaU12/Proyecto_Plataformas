@@ -48,6 +48,11 @@ export class GeneralService {
         )
   }
 
+  getAdminData(): Observable<any> {
+        return this.http.get(`${baseUrl}user_admin/data`).pipe(
+        )
+  }
+
   patchRestaurant(data: any): Observable<any> {
         return this.http.patch(`${baseUrl}restaurants`, data).pipe(
         )
@@ -66,6 +71,10 @@ export class GeneralService {
   getToken(){
     var valor = localStorage.getItem('token');
     return valor; 
+  }
+  deleteAdmin(): Observable<any>{
+        return this.http.delete(`${baseUrl}user_admin/destroy`).pipe(
+        )
   }
 
 }
