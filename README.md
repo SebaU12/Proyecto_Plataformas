@@ -32,12 +32,10 @@ principales elementos de su negocio.
 
 | Ionic Route | Backend URLs | Funcionalidad |
 | ---- | ---- | ---- |
-| `/home` |  `null` | Muestra un menú inicial |
+| `/home` |  `GET /restaurants ` | Muestra todos los restaurantes |
 | `/login/1` | `POST /user_admin/login, data` | Realizar login de un admin | 
 | `/login/2` | `POST /user_admin/sign-up, data` | Realizar registro de un admin |
-| `/perfil` | `PATCH /user_admin/update, data` | Actualiza la información del admin | 
 | `/perfil` | `DELETE /user_admin/destroy` | Elimina la información de admin |
-| `/restaurante` | `GET /restaurants` | Recopila todos los restaurantes |
 | `/restaurante/ver` | `GET /user_admin/resId` | Recopila el ID del restaurante que le pertenece a un admin |
 | `/restaurante/ver` | `GET /restaurants/+id` | Ver el restaurante para un ID dado que le pertenece a un admin |
 | `/restaurante/crear` | `POST /restaurants, data` | Realiza la creación de un restaurante | 
